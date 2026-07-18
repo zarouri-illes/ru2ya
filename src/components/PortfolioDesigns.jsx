@@ -3,10 +3,10 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const designs = [
-  { img: '/assets/graphic/1.png' },
-  { img: '/assets/graphic/post1.png' },
-  { img: '/assets/graphic/2.png' },
-  { img: '/assets/graphic/plaque%20bureau.png' },
+  { img: '/assets/graphic/1.png', alt: 'Design graphique ru2ya - création visuelle abstraite' },
+  { img: '/assets/graphic/post1.png', alt: 'Publication design réseaux sociaux - ru2ya studio' },
+  { img: '/assets/graphic/2.png', alt: 'Affiche design graphique - création de marque' },
+  { img: '/assets/graphic/plaque%20bureau.png', alt: 'Plaque bureau personnalisée - design industriel ru2ya' },
 ]
 
 function PortfolioDesigns() {
@@ -237,7 +237,7 @@ function PortfolioDesigns() {
               ref={(el) => (cardRefs.current[i] = el)}
               className="pd-card"
             >
-              <img src={item.img} alt="" className="pd-card-img" />
+              <img src={item.img} alt={item.alt} loading="lazy" className="pd-card-img" />
             </div>
           ))}
         </div>

@@ -63,6 +63,7 @@ function FilmSection() {
           muted
           loop
           playsInline
+          loading="lazy"
           poster="/logo_final.jpg"
         >
           <source src="/UNSAVED%20%28Short%20Film%29%20_%20Shot%20on%20iPhone%2016%20Pro.mp4" type="video/mp4" />
@@ -72,9 +73,9 @@ function FilmSection() {
       <div ref={vignetteRef} className="film-vignette" />
       <div ref={overlayRef} className="film-overlay">
         <div ref={textRef} className="film-text">
-          <h2 className="film-title">À Travers Notre Objectif</h2>
+          <h2 className="film-title">Réalisation Film & Production Vidéo</h2>
           <p className="film-desc">
-            Chaque plan est une fenêtre sur une histoire qui attend d'être racontée.
+            Production vidéo professionnelle, courts-métrages et contenu visuel pour marques. Des histoires qui captivent, des images qui marquent.
           </p>
           <button className="film-cta">Voir la Bande</button>
         </div>

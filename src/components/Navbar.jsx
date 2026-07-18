@@ -69,7 +69,7 @@ function Navbar() {
     <>
       <nav ref={navRef} className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <a href="#" className="nav-logo" onClick={(e) => handleNavClick(e, '#top')}>
-          <img src="/logo_final.png" alt="ru2ya" className="nav-logo-img" />
+          <img src="/logo_final.png" alt="ru2ya — studio de création numérique" className="nav-logo-img" />
         </a>
 
         <div className="nav-links">

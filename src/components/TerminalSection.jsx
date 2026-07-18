@@ -80,6 +80,10 @@ function TerminalSection() {
   return (
     <section ref={sectionRef} id="terminal" className="terminal-section" data-cursor="default">
       <div className="container">
+        <div className="terminal-section-header">
+          <h2 className="terminal-section-title">Développement Web &amp; Logiciel</h2>
+          <p className="terminal-section-desc">Applications web sur mesure, plateformes interactives et logiciels performants — du concept au déploiement.</p>
+        </div>
         <div ref={terminalRef} className="terminal-window">
           <div className="terminal-header">
             <div className="terminal-dots">
@@ -133,6 +137,31 @@ function TerminalSection() {
           background: var(--gradient-primary);
           padding: 80px 0;
           font-family: var(--font-mono);
+        }
+
+        .terminal-section-header {
+          text-align: center;
+          margin-bottom: 40px;
+        }
+
+        .terminal-section-title {
+          font-size: 36px;
+          font-weight: 700;
+          background: var(--gradient-accent);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          font-family: var(--font-sans);
+          margin-bottom: 12px;
+        }
+
+        .terminal-section-desc {
+          color: var(--gray);
+          font-size: 15px;
+          max-width: 500px;
+          margin: 0 auto;
+          font-family: var(--font-sans);
+          line-height: 1.6;
         }
 
         .terminal-window {

@@ -251,26 +251,26 @@ function PhotoshopSection() {
         <div className="masonry">
           <div className="masonry-col masonry-col--left">
             <div className="masonry-item huge">
-              <img src="/assets/sh1.png" alt="Design" className="masonry-img" />
+              <img src="/assets/sh1.png" alt="Portfolio de design graphique ru2ya - création visuelle" loading="lazy" className="masonry-img" />
             </div>
             <div className="masonry-item small">
-              <img src="/assets/sh6.png" alt="Design" className="masonry-img" />
+              <img src="/assets/sh6.png" alt="Illustration et design - ru2ya studio" loading="lazy" className="masonry-img" />
             </div>
           </div>
           <div className="masonry-col masonry-col--center">
             <div className="masonry-item tall">
-              <img src="/assets/sh3.png" alt="Design" className="masonry-img" />
+              <img src="/assets/sh3.png" alt="Création graphique - design créatif studio" loading="lazy" className="masonry-img" />
             </div>
             <div className="masonry-item small">
-              <img src="/assets/sh4.png" alt="Design" className="masonry-img" />
+              <img src="/assets/sh4.png" alt="Design visuel - portfolio studio ru2ya" loading="lazy" className="masonry-img" />
             </div>
           </div>
           <div className="masonry-col masonry-col--right">
             <div className="masonry-item huge">
-              <img src="/assets/sh2.png" alt="Design" className="masonry-img" />
+              <img src="/assets/sh2.png" alt="Projet de design graphique - identité de marque" loading="lazy" className="masonry-img" />
             </div>
             <div className="masonry-item medium">
-              <img src="/assets/sh5.png" alt="Design" className="masonry-img" />
+              <img src="/assets/sh5.png" alt="Projet créatif - design graphique moderne" loading="lazy" className="masonry-img" />
             </div>
           </div>
         </div>

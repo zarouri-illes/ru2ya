@@ -113,9 +113,9 @@ function TShirtSection() {
     <section ref={sectionRef} id="tshirt" className="tshirt-section" data-cursor="default">
       <div className="container">
         <div className="tshirt-header">
-          <h2 className="tshirt-title">Designs T-Shirt</h2>
+          <h2 className="tshirt-title">Création de T-Shirts & Design Vestimentaire</h2>
           <p className="tshirt-desc">
-            Des graphismes originaux conçus pour le tissu — chaque pièce commence comme un concept et finit comme un imprimé portable.
+            Des graphismes originaux conçus pour le tissu — chaque pièce commence comme un concept et finit comme un imprimé portable. Idéal pour les marques de streetwear et les créateurs.
           </p>
         </div>
 

@@ -1,0 +1,21 @@
+{
+  "name": "ru2ya — Studio Créatif Numérique",
+  "short_name": "ru2ya",
+  "description": "Studio de création numérique : développement web, design graphique, production vidéo et design t-shirt.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030014",
+  "theme_color": "#7c3aed",
+  "icons": [
+    {
+      "src": "/logo_final.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo_final.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

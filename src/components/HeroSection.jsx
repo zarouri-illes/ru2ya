@@ -109,13 +109,13 @@ function HeroSection() {
       <div ref={contentRef} className="hero-content">
         <div className="hero-center">
           <h1 ref={titleRef} className="hero-title">
-            Nous Créons du <span className="title-highlight">Numérique</span><br />
-            Qui Compte
+            ru2ya — Création <span className="title-highlight">Numérique</span><br />
+            & Studio Créatif
           </h1>
 
           <p ref={subtitleRef} className="hero-subtitle">
-            Expériences web, identités visuelles, films et vêtements —
-            conçus pour des marques qui refusent de se fondre dans la masse.
+            Développement web, design graphique, production vidéo et création de vêtements —
+            des expériences conçues pour des marques qui refusent de se fondre dans la masse.
           </p>
 
           <div ref={ctaRef} className="hero-actions">

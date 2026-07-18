@@ -85,7 +85,7 @@ function PortfolioWebsites() {
           {sites.map((site, i) => (
             <div key={i} className="site-card">
               <div className="site-preview">
-                <img src={site.img} alt={site.title} className="site-preview-img" />
+                <img src={site.img} alt={`Capture d'écran du site ${site.title} — projet ${site.tag} réalisé par ru2ya`} loading="lazy" className="site-preview-img" />
                 <div className="site-accent-bar" style={{ background: site.accent }} />
               </div>
               <div className="site-info">

@@ -13,7 +13,9 @@ import FilmSection from './components/FilmSection'
 import TShirtSection from './components/TShirtSection'
 import ContactSection from './components/ContactSection'
 
-gsap.registerPlugin(ScrollTrigger)
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 function App() {
   const wrapperRef = useRef(null)

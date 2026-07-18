@@ -1,13 +1,12 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
-const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0
-
 function CustomCursor() {
   const cursorRef = useRef(null)
   const followerRef = useRef(null)
 
   useEffect(() => {
+    const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0
     if (isTouchDevice()) return
 
     const cursor = cursorRef.current
@@ -56,7 +55,7 @@ function CustomCursor() {
     }
   }, [])
 
-  if (isTouchDevice()) return null
+  if (typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0)) return null
 
   return (
     <>

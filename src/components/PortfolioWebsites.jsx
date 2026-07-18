@@ -4,46 +4,31 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const sites = [
   {
-    title: 'Noor E-Commerce',
-    tag: 'React / Node.js',
-    desc: 'Boutique en ligne complète avec inventaire en temps réel, intégration de paiement et analyses tableau de bord.',
-    gradient: 'linear-gradient(135deg, #0a1628, #1a3a4a)',
-    accent: '#2dd4bf',
+    title: 'BacPrep Hub',
+    tag: 'React / Node.js / PostgreSQL',
+    desc: 'Plateforme éducative full-stack avec moteur de quiz interactif, chatbot IA propulsé par Gemini API, et suivi de performance dynamique pour les bacheliers Algériens.',
+    img: '/web_projects/bacprep.png',
+    link: 'https://bacprephub.vercel.app/',
+    gradient: 'linear-gradient(135deg, #0a0015, #1a3a4a)',
+    accent: '#7c3aed',
   },
   {
-    title: 'Atlas Dashboard',
-    tag: 'Vue / D3.js',
-    desc: 'Plateforme de visualisation de données pour le suivi logistique avec cartes en direct, graphiques et outils d\'exportation.',
-    gradient: 'linear-gradient(135deg, #0f1f3d, #2a1a3a)',
+    title: 'Promotion Immobilière DAOUD KAMEL',
+    tag: 'React / Tailwind CSS',
+    desc: 'Landing page vitrine pour une agence immobilière basée à Bouira, présentant ses services et ses biens.',
+    img: '/web_projects/dk.jpg',
+    link: 'https://promotiondaoudkamel.com/',
+    gradient: 'linear-gradient(135deg, #120020, #2a1a3a)',
     accent: '#c084fc',
   },
   {
-    title: 'Safir Travel',
-    tag: 'Next.js / Tailwind',
-    desc: 'Site d\'agence de voyage avec explorateur de destinations interactif, système de réservation et support multilingue.',
-    gradient: 'linear-gradient(135deg, #0a1628, #1a3a2a)',
-    accent: '#22d3ee',
-  },
-  {
-    title: 'Mira Health',
-    tag: 'React / Firebase',
-    desc: 'Plateforme de télémédecine avec prise de rendez-vous, consultations vidéo et dossiers patients.',
-    gradient: 'linear-gradient(135deg, #1a0a28, #0f1f3d)',
-    accent: '#f472b6',
-  },
-  {
-    title: 'Zaha Agency',
-    tag: 'Astro / GSAP',
-    desc: 'Portfolio d\'agence créative avec animations immersives au scroll, études de cas et CMS de contact.',
-    gradient: 'linear-gradient(135deg, #0f1f3d, #1a2a1a)',
-    accent: '#fbbf24',
-  },
-  {
-    title: 'Qalam Blog',
-    tag: 'Gatsby / MDX',
-    desc: 'Plateforme de publication moderne avec édition de texte enrichi, analytics lecteurs et intégration newsletter.',
-    gradient: 'linear-gradient(135deg, #0a1628, #3a1a1a)',
-    accent: '#ef4444',
+    title: 'Ose It',
+    tag: 'React / Tailwind CSS',
+    desc: 'Version initiale de la landing page d\'Ose It, un centre proposant des formations aux nouvelles technologies pour les enfants.',
+    img: '/web_projects/oseit.JPG',
+    link: 'https://ose-it-v1.vercel.app/',
+    gradient: 'linear-gradient(135deg, #0a0015, #1a3a2a)',
+    accent: '#c084fc',
   },
 ]
 
@@ -92,31 +77,15 @@ function PortfolioWebsites() {
         <div ref={headerRef} className="portfolio-header">
           <h2 className="portfolio-title">Nos Sites Réalisés</h2>
           <p className="portfolio-desc">
-            De l'e-commerce aux tableaux de bord — chaque projet est conçu pour la performance, l'ergonomie et l'impact.
+            Des plateformes éducatives aux landing pages — chaque projet est conçu avec React, Node.js et Tailwind CSS.
           </p>
         </div>
 
         <div ref={gridRef} className="sites-grid">
           {sites.map((site, i) => (
             <div key={i} className="site-card">
-              <div className="site-preview" style={{ background: site.gradient }}>
-                <div className="site-mockup">
-                  <div className="mockup-bar">
-                    <span className="mockup-dot" />
-                    <span className="mockup-dot" />
-                    <span className="mockup-dot" />
-                  </div>
-                  <div className="mockup-content">
-                    <div className="mockup-line w60" />
-                    <div className="mockup-line w40" />
-                    <div className="mockup-line w80" />
-                    <div className="mockup-block" />
-                    <div className="mockup-row">
-                      <div className="mockup-line w30" />
-                      <div className="mockup-line w30" />
-                    </div>
-                  </div>
-                </div>
+              <div className="site-preview">
+                <img src={site.img} alt={site.title} className="site-preview-img" />
                 <div className="site-accent-bar" style={{ background: site.accent }} />
               </div>
               <div className="site-info">
@@ -125,6 +94,9 @@ function PortfolioWebsites() {
                 </div>
                 <h3 className="site-title">{site.title}</h3>
                 <p className="site-desc">{site.desc}</p>
+                <a href={site.link} target="_blank" rel="noopener noreferrer" className="site-btn" style={{ '--btn-accent': site.accent }}>
+                  Voir le site →
+                </a>
               </div>
             </div>
           ))}
@@ -171,7 +143,7 @@ function PortfolioWebsites() {
 
         .site-card {
           background: rgba(15, 25, 40, 0.5);
-          border: 1px solid rgba(45, 212, 191, 0.08);
+          border: 1px solid rgba(124, 58, 237, 0.08);
           border-radius: 12px;
           overflow: hidden;
           transition: border-color 0.3s, transform 0.3s;
@@ -179,60 +151,27 @@ function PortfolioWebsites() {
         }
 
         .site-card:hover {
-          border-color: rgba(45, 212, 191, 0.25);
+          border-color: rgba(124, 58, 237, 0.25);
           transform: translateY(-4px);
         }
 
         .site-preview {
-          height: 140px;
+          height: 180px;
           position: relative;
           overflow: hidden;
+          background: #0a0015;
         }
 
-        .site-mockup {
-          padding: 12px;
+        .site-preview-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.4s ease;
         }
 
-        .mockup-bar {
-          display: flex;
-          gap: 4px;
-          margin-bottom: 10px;
-        }
-
-        .mockup-dot {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.15);
-        }
-
-        .mockup-content {
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-        }
-
-        .mockup-line {
-          height: 4px;
-          border-radius: 2px;
-          background: rgba(255, 255, 255, 0.08);
-        }
-
-        .mockup-line.w60 { width: 60%; }
-        .mockup-line.w40 { width: 40%; }
-        .mockup-line.w80 { width: 80%; }
-        .mockup-line.w30 { width: 30%; }
-
-        .mockup-block {
-          height: 24px;
-          border-radius: 3px;
-          background: rgba(255, 255, 255, 0.04);
-          margin: 2px 0;
-        }
-
-        .mockup-row {
-          display: flex;
-          gap: 12px;
+        .site-card:hover .site-preview-img {
+          transform: scale(1.05);
         }
 
         .site-accent-bar {
@@ -245,6 +184,9 @@ function PortfolioWebsites() {
 
         .site-info {
           padding: 16px;
+          display: flex;
+          flex-direction: column;
+          flex: 1;
         }
 
         .site-meta {
@@ -270,6 +212,32 @@ function PortfolioWebsites() {
           font-size: 13px;
           color: var(--gray);
           line-height: 1.5;
+          margin-bottom: 12px;
+        }
+
+        .site-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 8px 16px;
+          border-radius: 8px;
+          font-size: 12px;
+          font-weight: 600;
+          font-family: var(--font-sans);
+          color: var(--white);
+          background: rgba(124, 58, 237, 0.1);
+          border: 1px solid rgba(124, 58, 237, 0.2);
+          text-decoration: none;
+          transition: all 0.25s;
+          margin-top: auto;
+          align-self: flex-start;
+        }
+
+        .site-btn:hover {
+          background: var(--teal);
+          color: var(--navy);
+          border-color: var(--teal);
+          transform: translateY(-1px);
         }
 
         @media (max-width: 1024px) {
@@ -278,6 +246,9 @@ function PortfolioWebsites() {
           }
           .portfolio-title {
             font-size: 32px;
+          }
+          .site-preview {
+            height: 140px;
           }
         }
 
@@ -290,12 +261,25 @@ function PortfolioWebsites() {
             grid-template-columns: 1fr;
             max-width: 400px;
             margin: 0 auto;
+            gap: 16px;
           }
           .portfolio-title {
             font-size: 26px;
           }
           .site-preview {
-            height: 110px;
+            height: 180px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .sites-grid {
+            gap: 12px;
+          }
+          .site-preview {
+            height: 160px;
+          }
+          .site-info {
+            padding: 12px;
           }
         }
       `}</style>

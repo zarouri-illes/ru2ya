@@ -10,23 +10,23 @@ const commands = [
 ]
 
 const services = [
-  { label: 'Développement Web & Logiciel', color: '#2dd4bf' },
-  { label: 'Design Graphique', color: '#06b6d4' },
-  { label: 'Réalisation Film', color: '#22d3ee' },
+  { label: 'Développement Web & Logiciel', color: '#7c3aed' },
+  { label: 'Design Graphique', color: '#a855f7' },
+  { label: 'Réalisation Film', color: '#c084fc' },
   { label: 'Design T-Shirt', color: '#5eead4' },
 ]
 
 const codeLines = [
   { text: 'const ru2ya = {', color: '#c084fc' },
   { text: '  vision: "بصيرة",', color: '#f472b6' },
-  { text: '  studio: true,', color: '#2dd4bf' },
+  { text: '  studio: true,', color: '#7c3aed' },
   { text: '  services: [', color: '#c084fc' },
   { text: '    "Web & Software",', color: '#fbbf24' },
   { text: '    "Graphic Design",', color: '#fbbf24' },
   { text: '    "Film Making",', color: '#fbbf24' },
   { text: '    "T-Shirt Design",', color: '#fbbf24' },
   { text: '  ],', color: '#c084fc' },
-  { text: '  ship: () => console.log("🚀")', color: '#2dd4bf' },
+  { text: '  ship: () => console.log("🚀")', color: '#7c3aed' },
   { text: '};', color: '#c084fc' },
 ]
 
@@ -137,10 +137,10 @@ function TerminalSection() {
 
         .terminal-window {
           background: #0a0e1a;
-          border: 1px solid rgba(45, 212, 191, 0.2);
+          border: 1px solid rgba(124, 58, 237, 0.2);
           border-radius: 12px;
           overflow: hidden;
-          box-shadow: 0 0 60px rgba(6, 182, 212, 0.06), 0 20px 60px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 60px rgba(168, 85, 247, 0.06), 0 20px 60px rgba(0, 0, 0, 0.5);
           max-width: 800px;
           margin: 0 auto;
           width: 100%;
@@ -152,7 +152,7 @@ function TerminalSection() {
           display: flex;
           align-items: center;
           gap: 12px;
-          border-bottom: 1px solid rgba(45, 212, 191, 0.1);
+          border-bottom: 1px solid rgba(124, 58, 237, 0.1);
         }
 
         .terminal-dots {
@@ -229,7 +229,7 @@ function TerminalSection() {
           border-radius: 8px;
           padding: 16px;
           margin-bottom: 20px;
-          border: 1px solid rgba(45, 212, 191, 0.08);
+          border: 1px solid rgba(124, 58, 237, 0.08);
         }
 
         .code-line {
@@ -259,8 +259,8 @@ function TerminalSection() {
           align-items: center;
           gap: 6px;
           padding: 6px 12px;
-          background: rgba(45, 212, 191, 0.06);
-          border: 1px solid rgba(45, 212, 191, 0.12);
+          background: rgba(124, 58, 237, 0.06);
+          border: 1px solid rgba(124, 58, 237, 0.12);
           border-radius: 999px;
           font-size: 12px;
           color: var(--white);

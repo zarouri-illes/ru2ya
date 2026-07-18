@@ -29,7 +29,7 @@ const contacts = [
 const socials = [
   {
     name: 'Instagram',
-    href: '#',
+    href: 'https://www.instagram.com/ru2ya.dev/',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" />
@@ -39,19 +39,8 @@ const socials = [
     ),
   },
   {
-    name: 'Twitter / X',
-    href: '#',
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 4l11.73 16H20L8.27 4z" />
-        <path d="M4 20l7.38-10.08" />
-        <path d="M20 4l-7.38 10.08" />
-      </svg>
-    ),
-  },
-  {
     name: 'LinkedIn',
-    href: '#',
+    href: 'https://www.linkedin.com/company/ru2ya/',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="2" />
@@ -60,18 +49,6 @@ const socials = [
         <circle cx="8" cy="8" r="0" />
         <path d="M12 17v-4" />
         <path d="M16 17v-6a2 2 0 00-2-2 2 2 0 00-2 2" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Behance',
-    href: '#',
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 8h6a3 3 0 010 6 3 3 0 010 6H2V8z" />
-        <path d="M14 8h7" />
-        <path d="M14 12h5" />
-        <circle cx="19" cy="16" r="2" />
       </svg>
     ),
   },
@@ -192,8 +169,8 @@ function ContactSection() {
           position: absolute;
           inset: 0;
           background:
-            linear-gradient(rgba(45, 212, 191, 0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(45, 212, 191, 0.02) 1px, transparent 1px);
+            linear-gradient(rgba(124, 58, 237, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(124, 58, 237, 0.02) 1px, transparent 1px);
           background-size: 48px 48px;
           pointer-events: none;
         }
@@ -208,7 +185,7 @@ function ContactSection() {
         .contact-title {
           font-size: 42px;
           font-weight: 700;
-          background: linear-gradient(135deg, #06b6d4, #c084fc);
+          background: linear-gradient(135deg, #a855f7, #c084fc);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -239,7 +216,7 @@ function ContactSection() {
           gap: 14px;
           padding: 20px 24px;
           background: rgba(15, 25, 40, 0.5);
-          border: 1px solid rgba(45, 212, 191, 0.08);
+          border: 1px solid rgba(124, 58, 237, 0.08);
           border-radius: 14px;
           text-decoration: none;
           transition: all 0.3s;
@@ -247,18 +224,18 @@ function ContactSection() {
         }
 
         .contact-card:hover {
-          border-color: rgba(45, 212, 191, 0.3);
+          border-color: rgba(124, 58, 237, 0.3);
           background: rgba(15, 25, 40, 0.7);
           transform: translateY(-3px);
-          box-shadow: 0 8px 30px rgba(6, 182, 212, 0.08);
+          box-shadow: 0 8px 30px rgba(168, 85, 247, 0.08);
         }
 
         .contact-card-icon {
           width: 44px;
           height: 44px;
           border-radius: 12px;
-          background: rgba(45, 212, 191, 0.08);
-          border: 1px solid rgba(45, 212, 191, 0.12);
+          background: rgba(124, 58, 237, 0.08);
+          border: 1px solid rgba(124, 58, 237, 0.12);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -268,8 +245,8 @@ function ContactSection() {
         }
 
         .contact-card:hover .contact-card-icon {
-          background: rgba(45, 212, 191, 0.15);
-          border-color: rgba(45, 212, 191, 0.25);
+          background: rgba(124, 58, 237, 0.15);
+          border-color: rgba(124, 58, 237, 0.25);
         }
 
         .contact-card-body {
@@ -309,7 +286,7 @@ function ContactSection() {
           gap: 8px;
           padding: 16px 20px;
           background: rgba(15, 25, 40, 0.4);
-          border: 1px solid rgba(45, 212, 191, 0.06);
+          border: 1px solid rgba(124, 58, 237, 0.06);
           border-radius: 14px;
           text-decoration: none;
           color: var(--gray);
@@ -319,10 +296,10 @@ function ContactSection() {
         }
 
         .social-link:hover {
-          border-color: rgba(45, 212, 191, 0.25);
+          border-color: rgba(124, 58, 237, 0.25);
           background: rgba(15, 25, 40, 0.6);
           transform: translateY(-4px);
-          box-shadow: 0 8px 24px rgba(6, 182, 212, 0.06);
+          box-shadow: 0 8px 24px rgba(168, 85, 247, 0.06);
         }
 
         .social-link:hover .social-link-icon {

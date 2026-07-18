@@ -63,7 +63,7 @@ function FilmSection() {
           muted
           loop
           playsInline
-          poster="/logo_ru_ru.png"
+          poster="/logo_final.jpg"
         >
           <source src="/UNSAVED%20%28Short%20Film%29%20_%20Shot%20on%20iPhone%2016%20Pro.mp4" type="video/mp4" />
         </video>
@@ -113,7 +113,7 @@ function FilmSection() {
           background: radial-gradient(
             ellipse at center,
             transparent 45%,
-            rgba(10, 22, 40, 0.85) 100%
+            rgba(10, 0, 21, 0.85) 100%
           );
           pointer-events: none;
           z-index: 1;
@@ -168,7 +168,7 @@ function FilmSection() {
 
         .film-cta:hover {
           transform: scale(1.05);
-          box-shadow: 0 0 30px rgba(45, 212, 191, 0.3);
+          box-shadow: 0 0 30px rgba(124, 58, 237, 0.3);
         }
 
         @media (max-width: 768px) {

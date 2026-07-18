@@ -127,21 +127,6 @@ function HeroSection() {
               Voir Nos Réalisations
             </button>
           </div>
-
-          <div className="hero-stats">
-            <div className="stat">
-              <span className="stat-number">50+</span>
-              <span className="stat-label">Projets</span>
-            </div>
-            <div className="stat">
-              <span className="stat-number">4</span>
-              <span className="stat-label">Disciplines</span>
-            </div>
-            <div className="stat">
-              <span className="stat-number">100%</span>
-              <span className="stat-label">Vision</span>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -165,8 +150,8 @@ function HeroSection() {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(45, 212, 191, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(45, 212, 191, 0.03) 1px, transparent 1px);
+            linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
           background-size: 48px 48px;
           pointer-events: none;
         }
@@ -190,7 +175,7 @@ function HeroSection() {
         .hero-orb-1 {
           width: 500px;
           height: 500px;
-          background: radial-gradient(circle, rgba(45, 212, 191, 0.12) 0%, rgba(6, 182, 212, 0.04) 40%, transparent 70%);
+          background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, rgba(168, 85, 247, 0.04) 40%, transparent 70%);
           top: 10%;
           right: -100px;
         }
@@ -198,7 +183,7 @@ function HeroSection() {
         .hero-orb-2 {
           width: 350px;
           height: 350px;
-          background: radial-gradient(circle, rgba(192, 132, 252, 0.08) 0%, rgba(6, 182, 212, 0.03) 40%, transparent 70%);
+          background: radial-gradient(circle, rgba(192, 132, 252, 0.08) 0%, rgba(168, 85, 247, 0.03) 40%, transparent 70%);
           bottom: 5%;
           left: -60px;
         }
@@ -249,7 +234,6 @@ function HeroSection() {
         .hero-actions {
           display: flex;
           gap: 12px;
-          margin-bottom: 48px;
         }
 
         .hero-cta {
@@ -273,7 +257,7 @@ function HeroSection() {
 
         .hero-cta.primary:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 30px rgba(45, 212, 191, 0.3);
+          box-shadow: 0 8px 30px rgba(124, 58, 237, 0.3);
         }
 
         .cta-arrow {
@@ -287,38 +271,12 @@ function HeroSection() {
         .hero-cta.secondary {
           background: transparent;
           color: var(--white);
-          border: 1px solid rgba(45, 212, 191, 0.25);
+          border: 1px solid rgba(124, 58, 237, 0.25);
         }
 
         .hero-cta.secondary:hover {
           border-color: var(--teal);
-          background: rgba(45, 212, 191, 0.06);
-        }
-
-        .hero-stats {
-          display: flex;
-          gap: 40px;
-        }
-
-        .stat {
-          display: flex;
-          flex-direction: column;
-        }
-
-        .stat-number {
-          font-size: 28px;
-          font-weight: 700;
-          color: var(--white);
-          font-family: var(--font-sans);
-          letter-spacing: -1px;
-        }
-
-        .stat-label {
-          font-size: 11px;
-          text-transform: uppercase;
-          letter-spacing: 1.5px;
-          color: var(--gray);
-          font-family: var(--font-mono);
+          background: rgba(124, 58, 237, 0.06);
         }
 
         .hero-scroll-indicator {
@@ -332,7 +290,7 @@ function HeroSection() {
         .scroll-line {
           width: 1px;
           height: 32px;
-          background: linear-gradient(180deg, rgba(45, 212, 191, 0.4), transparent);
+          background: linear-gradient(180deg, rgba(124, 58, 237, 0.4), transparent);
           animation: scroll-bounce 2s ease-in-out infinite;
           display: block;
         }
@@ -379,13 +337,6 @@ function HeroSection() {
             justify-content: center;
           }
 
-          .hero-stats {
-            gap: 24px;
-          }
-
-          .stat-number {
-            font-size: 24px;
-          }
         }
       `}</style>
     </section>

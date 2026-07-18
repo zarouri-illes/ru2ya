@@ -69,7 +69,7 @@ function Navbar() {
     <>
       <nav ref={navRef} className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <a href="#" className="nav-logo" onClick={(e) => handleNavClick(e, '#top')}>
-          <img src="/logo_ru_ru.png" alt="ru2ya" className="nav-logo-img" />
+          <img src="/logo_final.png" alt="ru2ya" className="nav-logo-img" />
         </a>
 
         <div className="nav-links">
@@ -119,14 +119,14 @@ function Navbar() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 16px 32px;
+          padding: 5px 32px;
           transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
           background: transparent;
         }
 
         .navbar.scrolled {
-          background: rgba(10, 22, 40, 0.92);
-          box-shadow: 0 1px 0 rgba(45, 212, 191, 0.1), 0 4px 24px rgba(0, 0, 0, 0.3);
+          background: rgba(10, 0, 21, 0.92);
+          box-shadow: 0 1px 0 rgba(124, 58, 237, 0.1), 0 4px 24px rgba(0, 0, 0, 0.3);
           padding: 10px 32px;
         }
 
@@ -137,8 +137,13 @@ function Navbar() {
         }
 
         .nav-logo-img {
-          height: 32px;
-          width: auto;
+          height: 80px;
+          width: 80px;
+          transition: transform 0.6s ease;
+        }
+
+        .nav-logo-img:hover {
+          transform: rotate(360deg);
         }
 
         .nav-links {
@@ -160,7 +165,7 @@ function Navbar() {
 
         .nav-link:hover {
           color: var(--teal);
-          background: rgba(45, 212, 191, 0.08);
+          background: rgba(124, 58, 237, 0.08);
         }
 
         .hamburger {
@@ -201,7 +206,7 @@ function Navbar() {
           right: 0;
           bottom: 0;
           z-index: 999;
-          background: rgba(10, 22, 40, 0.97);
+          background: rgba(10, 0, 21, 0.97);
           backdrop-filter: blur(20px);
           display: none;
           flex-direction: column;
@@ -245,7 +250,8 @@ function Navbar() {
           }
 
           .nav-logo-img {
-            height: 24px;
+            height: 40px;
+            width: 40px;
           }
         }
       `}</style>

@@ -7,19 +7,19 @@
 }
 
 :root {
-  --navy: #0a1628;
-  --navy-light: #0f1f3d;
-  --teal: #2dd4bf;
-  --teal-dark: #14b8a6;
-  --cyan: #06b6d4;
-  --cyan-light: #22d3ee;
-  --white: #f0fdfa;
-  --gray: #94a3b8;
-  --dark-surface: #0d1b2a;
+  --navy: #0a0015;
+  --navy-light: #120020;
+  --teal: #7c3aed;
+  --teal-dark: #5b21b6;
+  --cyan: #a855f7;
+  --cyan-light: #c084fc;
+  --white: #faf5ff;
+  --gray: #a1a1aa;
+  --dark-surface: #120020;
 
-  --gradient-primary: linear-gradient(135deg, #0a1628, #0f1f3d, #0d1b2a);
-  --gradient-accent: linear-gradient(135deg, #2dd4bf, #06b6d4);
-  --gradient-glow: linear-gradient(135deg, rgba(45, 212, 191, 0.15), rgba(6, 182, 212, 0.08));
+  --gradient-primary: linear-gradient(135deg, #0a0015, #120020, #0d001a);
+  --gradient-accent: linear-gradient(135deg, #7c3aed, #a855f7);
+  --gradient-glow: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(168, 85, 247, 0.08));
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, Consolas, monospace;

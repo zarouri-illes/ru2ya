@@ -24,7 +24,7 @@ const layers = [
   { name: 'Arrière-plan', type: 'Couleur Unie', visible: true, locked: true },
 ]
 
-const swatches = ['#2dd4bf', '#06b6d4', '#22d3ee', '#0a1628', '#f0fdfa', '#c084fc', '#f472b6', '#fbbf24']
+const swatches = ['#7c3aed', '#a855f7', '#c084fc', '#0a0015', '#faf5ff', '#c084fc', '#f472b6', '#fbbf24']
 
 function PhotoshopSection() {
   const [activeTool, setActiveTool] = useState('move')
@@ -249,7 +249,15 @@ function PhotoshopSection() {
 
       <div className="ps-instagram">
         <div className="masonry">
-          <div className="masonry-col">
+          <div className="masonry-col masonry-col--left">
+            <div className="masonry-item huge">
+              <img src="/assets/sh1.png" alt="Design" className="masonry-img" />
+            </div>
+            <div className="masonry-item small">
+              <img src="/assets/sh6.png" alt="Design" className="masonry-img" />
+            </div>
+          </div>
+          <div className="masonry-col masonry-col--center">
             <div className="masonry-item tall">
               <img src="/assets/sh3.png" alt="Design" className="masonry-img" />
             </div>
@@ -257,14 +265,12 @@ function PhotoshopSection() {
               <img src="/assets/sh4.png" alt="Design" className="masonry-img" />
             </div>
           </div>
-          <div className="masonry-col wide-col">
+          <div className="masonry-col masonry-col--right">
             <div className="masonry-item huge">
-              <img src="/assets/sh1.png" alt="Design" className="masonry-img" />
-            </div>
-          </div>
-          <div className="masonry-col">
-            <div className="masonry-item medium">
               <img src="/assets/sh2.png" alt="Design" className="masonry-img" />
+            </div>
+            <div className="masonry-item medium">
+              <img src="/assets/sh5.png" alt="Design" className="masonry-img" />
             </div>
           </div>
         </div>
@@ -294,14 +300,21 @@ function PhotoshopSection() {
         }
 
         .masonry-col {
-          flex: 1;
           display: flex;
           flex-direction: column;
           gap: 20px;
         }
 
-        .masonry-col.wide-col {
-          flex: 1.6;
+        .masonry-col--left {
+          flex: 1.4;
+        }
+
+        .masonry-col--center {
+          flex: 0.8;
+        }
+
+        .masonry-col--right {
+          flex: 1.4;
         }
 
         .masonry-item {
@@ -352,17 +365,17 @@ function PhotoshopSection() {
           padding: 0 16px;
           gap: 0;
           height: 640px;
-          border: 1px solid rgba(45, 212, 191, 0.08);
+          border: 1px solid rgba(124, 58, 237, 0.08);
           border-radius: 8px;
           overflow: hidden;
           background: #0d1117;
-          box-shadow: 0 0 60px rgba(6, 182, 212, 0.04);
+          box-shadow: 0 0 60px rgba(168, 85, 247, 0.04);
         }
 
         .ps-toolbar {
           width: 44px;
           background: #161b22;
-          border-right: 1px solid rgba(45, 212, 191, 0.06);
+          border-right: 1px solid rgba(124, 58, 237, 0.06);
           display: flex;
           flex-direction: column;
           padding: 6px 4px;
@@ -386,14 +399,14 @@ function PhotoshopSection() {
         }
 
         .ps-tool-btn:hover {
-          background: rgba(45, 212, 191, 0.08);
+          background: rgba(124, 58, 237, 0.08);
           color: var(--teal);
         }
 
         .ps-tool-btn.active {
-          background: rgba(45, 212, 191, 0.12);
+          background: rgba(124, 58, 237, 0.12);
           color: var(--teal);
-          box-shadow: inset 0 0 0 1px rgba(45, 212, 191, 0.2);
+          box-shadow: inset 0 0 0 1px rgba(124, 58, 237, 0.2);
         }
 
         .tool-btn-icon {
@@ -410,7 +423,7 @@ function PhotoshopSection() {
         .ps-options-bar {
           height: 36px;
           background: #161b22;
-          border-bottom: 1px solid rgba(45, 212, 191, 0.06);
+          border-bottom: 1px solid rgba(124, 58, 237, 0.06);
           display: flex;
           align-items: center;
           padding: 0 12px;
@@ -449,7 +462,7 @@ function PhotoshopSection() {
         .option-divider {
           width: 1px;
           height: 16px;
-          background: rgba(45, 212, 191, 0.08);
+          background: rgba(124, 58, 237, 0.08);
         }
 
         .ps-canvas-area {
@@ -464,7 +477,7 @@ function PhotoshopSection() {
         .ps-ruler-top {
           height: 20px;
           background: #161b22;
-          border-bottom: 1px solid rgba(45, 212, 191, 0.06);
+          border-bottom: 1px solid rgba(124, 58, 237, 0.06);
           display: flex;
           align-items: center;
           flex-shrink: 0;
@@ -474,7 +487,7 @@ function PhotoshopSection() {
         .ruler-tick {
           width: 50px;
           position: relative;
-          border-left: 1px solid rgba(45, 212, 191, 0.06);
+          border-left: 1px solid rgba(124, 58, 237, 0.06);
           height: 100%;
         }
 
@@ -494,13 +507,13 @@ function PhotoshopSection() {
           bottom: 24px;
           width: 20px;
           background: #161b22;
-          border-right: 1px solid rgba(45, 212, 191, 0.06);
+          border-right: 1px solid rgba(124, 58, 237, 0.06);
           z-index: 2;
         }
 
         .ruler-tick-v {
           height: 50px;
-          border-top: 1px solid rgba(45, 212, 191, 0.06);
+          border-top: 1px solid rgba(124, 58, 237, 0.06);
           position: relative;
         }
 
@@ -520,7 +533,7 @@ function PhotoshopSection() {
           justify-content: center;
           position: relative;
           background:
-            repeating-conic-gradient(rgba(45, 212, 191, 0.03) 0% 25%, transparent 0% 50%)
+            repeating-conic-gradient(rgba(124, 58, 237, 0.03) 0% 25%, transparent 0% 50%)
             0 0 / 16px 16px;
           margin-left: 20px;
         }
@@ -529,7 +542,7 @@ function PhotoshopSection() {
           position: relative;
           width: 360px;
           height: 360px;
-          background: #0a1628;
+          background: #0a0015;
           border-radius: 4px;
           box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
           display: flex;
@@ -552,7 +565,7 @@ function PhotoshopSection() {
           width: 160px;
           height: 160px;
           border-radius: 50%;
-          border: 2px dashed rgba(45, 212, 191, 0.15);
+          border: 2px dashed rgba(124, 58, 237, 0.15);
           animation: rotate-dash 20s linear infinite;
         }
 
@@ -564,8 +577,8 @@ function PhotoshopSection() {
           width: 70px;
           height: 70px;
           border-radius: 50%;
-          background: radial-gradient(circle at 35% 35%, rgba(45, 212, 191, 0.3), rgba(6, 182, 212, 0.1));
-          border: 2px solid rgba(45, 212, 191, 0.25);
+          background: radial-gradient(circle at 35% 35%, rgba(124, 58, 237, 0.3), rgba(168, 85, 247, 0.1));
+          border: 2px solid rgba(124, 58, 237, 0.25);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -575,8 +588,8 @@ function PhotoshopSection() {
         }
 
         @keyframes breathe {
-          0%, 100% { box-shadow: 0 0 10px rgba(45, 212, 191, 0.1); }
-          50% { box-shadow: 0 0 25px rgba(45, 212, 191, 0.2); }
+          0%, 100% { box-shadow: 0 0 10px rgba(124, 58, 237, 0.1); }
+          50% { box-shadow: 0 0 25px rgba(124, 58, 237, 0.2); }
         }
 
         .logo-eye-inner {
@@ -593,7 +606,7 @@ function PhotoshopSection() {
           width: 16px;
           height: 16px;
           border-radius: 50%;
-          background: #0a1628;
+          background: #0a0015;
           position: relative;
         }
 
@@ -656,7 +669,7 @@ function PhotoshopSection() {
           right: 0;
           top: 50%;
           height: 1px;
-          background: rgba(45, 212, 191, 0.06);
+          background: rgba(124, 58, 237, 0.06);
           pointer-events: none;
         }
 
@@ -666,7 +679,7 @@ function PhotoshopSection() {
           bottom: 0;
           left: 50%;
           width: 1px;
-          background: rgba(45, 212, 191, 0.06);
+          background: rgba(124, 58, 237, 0.06);
           pointer-events: none;
         }
 
@@ -676,7 +689,7 @@ function PhotoshopSection() {
           left: 50%;
           width: 12px;
           height: 12px;
-          border: 1px solid rgba(45, 212, 191, 0.12);
+          border: 1px solid rgba(124, 58, 237, 0.12);
           border-radius: 50%;
           transform: translate(-50%, -50%);
           pointer-events: none;
@@ -685,7 +698,7 @@ function PhotoshopSection() {
         .ps-status-bar {
           height: 24px;
           background: #161b22;
-          border-top: 1px solid rgba(45, 212, 191, 0.06);
+          border-top: 1px solid rgba(124, 58, 237, 0.06);
           display: flex;
           align-items: center;
           padding: 0 12px;
@@ -703,7 +716,7 @@ function PhotoshopSection() {
         .ps-panels {
           width: 220px;
           background: #161b22;
-          border-left: 1px solid rgba(45, 212, 191, 0.06);
+          border-left: 1px solid rgba(124, 58, 237, 0.06);
           display: flex;
           flex-direction: column;
           flex-shrink: 0;
@@ -711,7 +724,7 @@ function PhotoshopSection() {
 
         .ps-panel-tabs {
           display: flex;
-          border-bottom: 1px solid rgba(45, 212, 191, 0.06);
+          border-bottom: 1px solid rgba(124, 58, 237, 0.06);
           flex-shrink: 0;
         }
 
@@ -743,7 +756,7 @@ function PhotoshopSection() {
           font-size: 10px;
           font-family: var(--font-mono);
           color: var(--gray);
-          border-bottom: 1px solid rgba(45, 212, 191, 0.04);
+          border-bottom: 1px solid rgba(124, 58, 237, 0.04);
         }
 
         .layer-filter {
@@ -751,7 +764,7 @@ function PhotoshopSection() {
           font-size: 10px;
           font-family: var(--font-mono);
           color: #484f58;
-          border-bottom: 1px solid rgba(45, 212, 191, 0.04);
+          border-bottom: 1px solid rgba(124, 58, 237, 0.04);
         }
 
         .ps-layer-item {
@@ -765,12 +778,12 @@ function PhotoshopSection() {
         }
 
         .ps-layer-item:hover {
-          background: rgba(45, 212, 191, 0.04);
+          background: rgba(124, 58, 237, 0.04);
         }
 
         .ps-layer-item.active {
-          background: rgba(45, 212, 191, 0.08);
-          border: 1px solid rgba(45, 212, 191, 0.12);
+          background: rgba(124, 58, 237, 0.08);
+          border: 1px solid rgba(124, 58, 237, 0.12);
           border-radius: 2px;
           margin: 0 4px;
           padding: 4px;
@@ -787,8 +800,8 @@ function PhotoshopSection() {
           width: 20px;
           height: 20px;
           border-radius: 2px;
-          background: rgba(45, 212, 191, 0.06);
-          border: 1px solid rgba(45, 212, 191, 0.08);
+          background: rgba(124, 58, 237, 0.06);
+          border: 1px solid rgba(124, 58, 237, 0.08);
           flex-shrink: 0;
         }
 
@@ -813,7 +826,7 @@ function PhotoshopSection() {
         }
 
         .ps-panel-bottom {
-          border-top: 1px solid rgba(45, 212, 191, 0.06);
+          border-top: 1px solid rgba(124, 58, 237, 0.06);
           padding: 8px;
           flex-shrink: 0;
         }
@@ -848,19 +861,23 @@ function PhotoshopSection() {
 
         @media (max-width: 1024px) {
           .masonry {
-            flex-direction: column;
+            flex-wrap: wrap;
           }
-          .masonry-col.wide-col {
-            flex: 1;
+          .masonry-col {
+            width: calc(50% - 10px);
+            flex: none;
+          }
+          .masonry-col--center {
+            order: 3;
           }
           .masonry-item.huge {
-            min-height: 380px;
+            min-height: 360px;
           }
           .masonry-item.tall {
-            min-height: 260px;
+            min-height: 280px;
           }
           .masonry-item.medium {
-            min-height: 200px;
+            min-height: 220px;
           }
           .masonry-item.small {
             min-height: 160px;
@@ -876,7 +893,7 @@ function PhotoshopSection() {
             flex-wrap: wrap;
             padding: 4px 8px;
             border-right: none;
-            border-bottom: 1px solid rgba(45, 212, 191, 0.06);
+            border-bottom: 1px solid rgba(124, 58, 237, 0.06);
           }
           .ps-tool-btn {
             width: 32px;
@@ -886,7 +903,7 @@ function PhotoshopSection() {
           .ps-panels {
             width: 100%;
             border-left: none;
-            border-top: 1px solid rgba(45, 212, 191, 0.06);
+            border-top: 1px solid rgba(124, 58, 237, 0.06);
             flex-direction: row;
             flex-wrap: wrap;
           }
@@ -903,11 +920,75 @@ function PhotoshopSection() {
             min-height: auto;
             padding: 20px 0;
           }
+          .masonry {
+            flex-direction: column;
+            gap: 12px;
+          }
+          .masonry-col {
+            width: 100%;
+            gap: 12px;
+          }
+          .masonry-col--center {
+            order: 0;
+          }
+          .masonry-item.tall {
+            min-height: 220px;
+          }
+          .masonry-item.huge {
+            min-height: 280px;
+          }
+          .masonry-item.medium {
+            min-height: 200px;
+          }
+          .masonry-item.small {
+            min-height: 150px;
+          }
           .ps-options-bar { display: none; }
-          .ps-canvas-inner { width: 200px; height: 200px; }
+          .ps-panels { display: none; }
+          .ps-canvas-inner { width: 100%; height: auto; aspect-ratio: 1; max-width: 280px; }
           .logo-artboard { transform: scale(0.7); }
-          .ps-layer-list { min-height: 80px; max-height: 120px; }
-          .ps-instagram { margin-top: 32px; }
+          .ps-toolbar {
+            justify-content: center;
+            gap: 2px;
+          }
+          .ps-tool-btn {
+            width: 28px;
+            height: 28px;
+            font-size: 11px;
+          }
+          .ps-instagram { margin-top: 24px; padding: 0 12px; }
+        }
+
+        @media (max-width: 480px) {
+          .masonry {
+            gap: 8px;
+          }
+          .masonry-col {
+            gap: 8px;
+          }
+          .masonry-item.tall {
+            min-height: 180px;
+          }
+          .masonry-item.huge {
+            min-height: 220px;
+          }
+          .masonry-item.medium {
+            min-height: 160px;
+          }
+          .masonry-item.small {
+            min-height: 120px;
+          }
+          .ps-instagram {
+            padding: 0 8px;
+          }
+          .ps-canvas-inner {
+            max-width: 220px;
+          }
+          .ps-tool-btn {
+            width: 24px;
+            height: 24px;
+            font-size: 10px;
+          }
         }
       `}</style>
     </section>

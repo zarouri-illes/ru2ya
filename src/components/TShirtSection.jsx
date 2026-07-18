@@ -7,7 +7,7 @@ const designs = [
     id: 1,
     name: 'Tee Vision',
     img: '/assets/tshirt1.png',
-    colors: ['#0a1628', '#2dd4bf', '#ffffff'],
+    colors: ['#0a0015', '#7c3aed', '#ffffff'],
     tag: 'Géométrique',
     desc: 'Composition géométrique audacieuse avec accents teal superposés sur une base sombre.',
   },
@@ -15,7 +15,7 @@ const designs = [
     id: 2,
     name: 'Noir Signature',
     img: '/assets/tshirt2.jpg',
-    colors: ['#0a1628', '#f0fdfa', '#06b6d4'],
+    colors: ['#0a0015', '#f0fdfa', '#a855f7'],
     tag: 'Minimal',
     desc: 'Design typographique épuré — le mot-symbole ru2ya centré sur fond noir.',
   },
@@ -23,7 +23,7 @@ const designs = [
     id: 3,
     name: 'Ton Désert',
     img: '/assets/design.jpg',
-    colors: ['#0a1628', '#fbbf24', '#ef4444'],
+    colors: ['#0a0015', '#fbbf24', '#ef4444'],
     tag: 'Abstrait',
     desc: 'Imprimé abstrait aux tons chauds inspiré des paysages désertiques et des palettes délavées par le soleil.',
   },
@@ -194,7 +194,7 @@ function TShirtSection() {
 
         .shirt-card {
           background: rgba(15, 25, 40, 0.6);
-          border: 1px solid rgba(45, 212, 191, 0.1);
+          border: 1px solid rgba(124, 58, 237, 0.1);
           border-radius: 16px;
           overflow: hidden;
           cursor: pointer;
@@ -205,12 +205,12 @@ function TShirtSection() {
         }
 
         .shirt-card:hover {
-          border-color: rgba(45, 212, 191, 0.3);
+          border-color: rgba(124, 58, 237, 0.3);
         }
 
         .shirt-card:focus-visible {
           border-color: var(--teal);
-          box-shadow: 0 0 20px rgba(45, 212, 191, 0.2);
+          box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
         }
 
         .shirt-shadow {
@@ -236,8 +236,8 @@ function TShirtSection() {
           text-transform: uppercase;
           letter-spacing: 1px;
           color: var(--white);
-          background: rgba(45, 212, 191, 0.15);
-          border: 1px solid rgba(45, 212, 191, 0.2);
+          background: rgba(124, 58, 237, 0.15);
+          border: 1px solid rgba(124, 58, 237, 0.2);
           padding: 3px 10px;
           border-radius: 999px;
         }
@@ -249,7 +249,7 @@ function TShirtSection() {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: rgba(10, 22, 40, 0.4);
+          background: rgba(10, 0, 21, 0.4);
         }
 
         .shirt-img {
@@ -309,9 +309,23 @@ function TShirtSection() {
           .shirt-grid {
             grid-template-columns: 1fr;
             max-width: 400px;
+            gap: 16px;
           }
           .tshirt-title {
             font-size: 28px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .shirt-grid {
+            gap: 12px;
+          }
+          .shirt-img {
+            width: 70%;
+            height: 70%;
+          }
+          .shirt-info {
+            padding: 12px;
           }
         }
       `}</style>

@@ -1,215 +1,354 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const designs = [
-  {
-    img: '/assets/graphic/1.png',
-    desc: 'Identite de marque complete avec systeme typographique et palette sur mesure.',
-    palette: ['#0a1628', '#2dd4bf', '#06b6d4', '#f0fdfa', '#c084fc'],
-  },
-  {
-    img: '/assets/graphic/post1.png',
-    desc: 'Campagne social media aux visuels percutants pour un lancement de produit.',
-    palette: ['#0a1628', '#fbbf24', '#f472b6', '#2dd4bf', '#ffffff'],
-  },
-  {
-    img: '/assets/graphic/2.png',
-    desc: 'Brochure luxueuse avec mise en page editoriale soignee et photos sur mesure.',
-    palette: ['#1a1a2e', '#e2e8f0', '#cbd5e1', '#0f172a', '#94a3b8'],
-  },
-  {
-    img: '/assets/graphic/plaque%20bureau.png',
-    desc: 'Pitch deck investisseur avec visualisations de donnees et narrative coherence.',
-    palette: ['#0a1628', '#2dd4bf', '#c084fc', '#fbbf24', '#1e293b'],
-  },
-  {
-    img: '/assets/graphic/1.png',
-    desc: 'Direction artistique editoriale pour magazine culturel trimestriel.',
-    palette: ['#0a1628', '#2dd4bf', '#06b6d4', '#f0fdfa', '#c084fc'],
-  },
-  {
-    img: '/assets/graphic/post1.png',
-    desc: "Design d'interface mobile pour plateforme sante - ecrans et prototype.",
-    palette: ['#0a1628', '#fbbf24', '#f472b6', '#2dd4bf', '#ffffff'],
-  },
+  { img: '/assets/graphic/1.png' },
+  { img: '/assets/graphic/post1.png' },
+  { img: '/assets/graphic/2.png' },
+  { img: '/assets/graphic/plaque%20bureau.png' },
 ]
 
 function PortfolioDesigns() {
+  const [front, setFront] = useState(0)
   const sectionRef = useRef(null)
   const headerRef = useRef(null)
-  const listRef = useRef(null)
+  const deckRef = useRef(null)
+  const cardRefs = useRef([])
+  const dragState = useRef({ startX: 0 })
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-          end: 'top 20%',
-          toggleActions: 'play none none reverse',
-        },
-      })
-
-      tl.fromTo(
+      gsap.fromTo(
         headerRef.current,
         { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
+        {
+          opacity: 1, y: 0, duration: 0.6, ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+            end: 'top 20%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       )
 
-      const items = listRef.current?.querySelectorAll('.design-item')
-      if (items) {
-        tl.fromTo(
-          items,
-          { opacity: 0, y: 30, scale: 0.95 },
-          {
-            opacity: 1, y: 0, scale: 1,
-            duration: 0.5, stagger: 0.1, ease: 'power3.out',
+      gsap.fromTo(
+        deckRef.current,
+        { opacity: 0, scale: 0.9 },
+        {
+          opacity: 1, scale: 1, duration: 0.9, ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+            end: 'top 20%',
+            toggleActions: 'play none none reverse',
           },
-          '-=0.3'
-        )
-      }
+        }
+      )
     }, sectionRef)
+
+    layoutDeck(0)
 
     return () => ctx.revert()
   }, [])
 
-  return (
-    <section ref={sectionRef} id="designs" className="portfolio-designs" data-cursor="default">
-      <div className="container">
-        <div ref={headerRef} className="portfolio-header">
-          <h2 className="portfolio-title">Travaux Visuels</h2>
-          <p className="portfolio-desc">
-            Identites de marque, mises en page imprimees, campagnes sociales et designs UI qui communiquent en un coup d'oeil.
-          </p>
-        </div>
+  const layoutDeck = (frontIndex, animate = false) => {
+    const total = designs.length
+    const duration = animate ? 0.5 : 0
 
-        <div ref={listRef} className="designs-list">
+    cardRefs.current.forEach((el, i) => {
+      if (!el) return
+      const offset = ((i - frontIndex + total) % total)
+      const isFront = offset === 0
+
+      gsap.to(el, {
+        x: offset * 16,
+        y: offset * 10,
+        scale: isFront ? 1 : Math.max(0.8, 1 - offset * 0.04),
+        rotation: isFront ? 0 : (offset - 1) * 2.5,
+        zIndex: total - offset,
+        duration,
+        ease: 'power3.out',
+      })
+    })
+  }
+
+  const advance = () => {
+    const prev = front
+    const next = (front + 1) % designs.length
+
+    const prevEl = cardRefs.current[prev]
+    const nextEl = cardRefs.current[next]
+    if (!prevEl || !nextEl) return
+
+    const total = designs.length
+
+    gsap.to(prevEl, {
+      x: (total - 1) * 16,
+      y: (total - 1) * 10,
+      scale: Math.max(0.8, 1 - (total - 1) * 0.04),
+      rotation: (total - 2) * 2.5,
+      zIndex: 0,
+      duration: 0.5,
+      ease: 'power3.inOut',
+    })
+
+    gsap.to(nextEl, {
+      x: 0,
+      y: 0,
+      scale: 1,
+      rotation: 0,
+      zIndex: total,
+      duration: 0.5,
+      ease: 'back.out(1.7)',
+    })
+
+    let idx = 0
+    cardRefs.current.forEach((el, i) => {
+      if (i === prev || i === next) return
+      const offset = idx + 1
+      gsap.to(el, {
+        x: offset * 16,
+        y: offset * 10,
+        scale: Math.max(0.8, 1 - offset * 0.04),
+        rotation: offset * 2.5,
+        zIndex: total - offset,
+        duration: 0.5,
+        ease: 'power3.out',
+      })
+      idx++
+    })
+
+    setFront(next)
+  }
+
+  const goTo = (index) => {
+    const total = designs.length
+    const target = (index + total) % total
+    if (target === front) return
+
+    cardRefs.current.forEach((el, i) => {
+      if (!el) return
+      gsap.set(el, { opacity: 1 })
+    })
+
+    const prev = front
+    const prevEl = cardRefs.current[prev]
+    const nextEl = cardRefs.current[target]
+    if (!prevEl || !nextEl) return
+
+    gsap.to(prevEl, {
+      x: (total - 1) * 16,
+      y: (total - 1) * 10,
+      scale: Math.max(0.8, 1 - (total - 1) * 0.04),
+      rotation: (total - 2) * 2.5,
+      zIndex: 0,
+      duration: 0.5,
+      ease: 'power3.inOut',
+    })
+
+    gsap.to(nextEl, {
+      x: 0, y: 0, scale: 1, rotation: 0, zIndex: total,
+      duration: 0.5,
+      ease: 'back.out(1.7)',
+    })
+
+    let idx = 0
+    cardRefs.current.forEach((el, i) => {
+      if (i === prev || i === target) return
+      const offset = idx + 1
+      gsap.to(el, {
+        x: offset * 16,
+        y: offset * 10,
+        scale: Math.max(0.8, 1 - offset * 0.04),
+        rotation: offset * 2.5,
+        zIndex: total - offset,
+        duration: 0.5,
+        ease: 'power3.out',
+      })
+      idx++
+    })
+
+    setFront(target)
+  }
+
+  const handlePointerDown = (e) => {
+    dragState.current.startX = e.clientX ?? e.changedTouches?.[0]?.clientX
+    dragState.current.isDragging = false
+  }
+
+  const handlePointerMove = (e) => {
+    if (dragState.current.startX == null) return
+    const x = e.clientX ?? e.changedTouches?.[0]?.clientX
+    if (x == null) return
+    const dx = x - dragState.current.startX
+    if (Math.abs(dx) > 8) {
+      dragState.current.isDragging = true
+    }
+    if (Math.abs(dx) > 20) {
+      const frontEl = cardRefs.current[front]
+      if (frontEl) {
+        gsap.set(frontEl, { x: dx, rotation: dx * 0.05 })
+      }
+    }
+  }
+
+  const handlePointerUp = (e) => {
+    const x = e.clientX ?? e.changedTouches?.[0]?.clientX
+    if (x == null || dragState.current.startX == null) return
+    const dx = x - dragState.current.startX
+
+    if (Math.abs(dx) > 60) {
+      advance()
+    } else if (dragState.current.isDragging) {
+      const frontEl = cardRefs.current[front]
+      if (frontEl) {
+        gsap.to(frontEl, { x: 0, rotation: 0, duration: 0.4, ease: 'power3.out' })
+      }
+    }
+
+    dragState.current.startX = null
+  }
+
+  const handleClick = () => {
+    if (!dragState.current.isDragging) advance()
+  }
+
+  return (
+    <section ref={sectionRef} id="designs" className="portfolio-designs">
+      <div ref={headerRef} className="pd-header">
+        <h2 className="pd-title">Travaux Visuels</h2>
+      </div>
+
+      <div
+        ref={deckRef}
+        className="pd-deck"
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerLeave={handlePointerUp}
+        onClick={handleClick}
+      >
+        <div className="pd-deck-inner">
           {designs.map((item, i) => (
-            <div key={i} className="design-item">
-              <div className="design-img-wrap">
-                <img src={item.img} alt="Design" className="design-img" />
-              </div>
-              <div className="design-info">
-                <p className="design-desc">{item.desc}</p>
-                <div className="design-palette">
-                  {item.palette.map((c, ci) => (
-                    <span
-                      key={ci}
-                      className="palette-swatch"
-                      style={{ background: c }}
-                      title={c}
-                    />
-                  ))}
-                </div>
-              </div>
+            <div
+              key={i}
+              ref={(el) => (cardRefs.current[i] = el)}
+              className="pd-card"
+            >
+              <img src={item.img} alt="" className="pd-card-img" />
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="pd-dots">
+        {designs.map((_, i) => (
+          <button
+            key={i}
+            className={`pd-dot ${i === front ? 'active' : ''}`}
+            onClick={() => goTo(i)}
+            aria-label={`Image ${i + 1}`}
+          />
+        ))}
       </div>
 
       <style>{`
         .portfolio-designs {
           min-height: 100vh;
           background: #0b0e1a;
-          padding: 100px 0;
+          padding: 80px 0;
           display: flex;
+          flex-direction: column;
           align-items: center;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
         }
 
-        .portfolio-header {
+        .pd-header {
           text-align: center;
-          margin-bottom: 60px;
+          margin-bottom: 40px;
+          z-index: 2;
         }
 
-        .portfolio-title {
+        .pd-title {
           font-size: 42px;
           font-weight: 700;
-          background: linear-gradient(135deg, #06b6d4, #c084fc);
+          background: linear-gradient(135deg, #a855f7, #c084fc);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          margin-bottom: 12px;
           font-family: var(--font-sans);
         }
 
-        .portfolio-desc {
-          color: var(--gray);
-          font-size: 16px;
-          max-width: 520px;
-          margin: 0 auto;
+        .pd-deck {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          padding: 0 24px;
+          touch-action: none;
+          user-select: none;
+          -webkit-user-select: none;
         }
 
-        .designs-list {
+        .pd-deck-inner {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 20px;
+          justify-items: center;
+          max-width: 100%;
         }
 
-        .design-item {
+        .pd-card {
+          grid-area: 1 / 1;
           border-radius: 16px;
           overflow: hidden;
-          background: rgba(15, 25, 40, 0.4);
-          border: 1px solid rgba(6, 182, 212, 0.08);
-          transition: all 0.4s;
-          cursor: pointer;
-          display: flex;
-          flex-direction: column;
-        }
-
-        .design-item:hover {
-          transform: translateY(-6px);
-          border-color: rgba(6, 182, 212, 0.2);
-          box-shadow: 0 12px 40px rgba(6, 182, 212, 0.06);
-        }
-
-        .design-img-wrap {
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+          cursor: grab;
+          border: 2px solid rgba(255, 255, 255, 0.08);
+          will-change: transform;
+          align-self: center;
+          justify-self: center;
           line-height: 0;
         }
 
-        .design-img {
-          width: 100%;
-          height: auto;
+        .pd-card:active {
+          cursor: grabbing;
+        }
+
+        .pd-card-img {
           display: block;
+          max-width: 80vw;
+          max-height: 70vh;
+          width: auto;
+          height: auto;
+          pointer-events: none;
+          border-radius: 14px;
         }
 
-        .design-info {
-          padding: 16px;
-          flex: 1;
+        .pd-dots {
           display: flex;
-          flex-direction: column;
-          gap: 12px;
+          justify-content: center;
+          gap: 8px;
+          margin-top: 24px;
+          z-index: 2;
         }
 
-        .design-desc {
-          font-size: 12px;
-          color: var(--gray);
-          line-height: 1.6;
-          margin: 0;
-        }
-
-        .design-palette {
-          display: flex;
-          gap: 4px;
-        }
-
-        .palette-swatch {
-          width: 16px;
-          height: 16px;
+        .pd-dot {
+          width: 8px;
+          height: 8px;
           border-radius: 50%;
-          border: 1.5px solid rgba(255, 255, 255, 0.1);
-          transition: transform 0.2s;
+          border: none;
+          background: rgba(255, 255, 255, 0.2);
           cursor: pointer;
+          transition: all 0.3s;
+          padding: 0;
         }
 
-        .palette-swatch:hover {
-          transform: scale(1.4);
-        }
-
-        @media (max-width: 1024px) {
-          .designs-list {
-            grid-template-columns: repeat(2, 1fr);
-          }
+        .pd-dot.active {
+          background: var(--teal);
+          width: 24px;
+          border-radius: 4px;
         }
 
         @media (max-width: 768px) {
@@ -217,18 +356,25 @@ function PortfolioDesigns() {
             padding: 60px 0;
             min-height: auto;
           }
-          .portfolio-title {
+          .pd-title {
             font-size: 28px;
           }
-          .designs-list {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+          .pd-deck {
+            padding: 0 16px;
           }
-          .design-item {
-            max-width: 400px;
-            width: 100%;
+          .pd-card-img {
+            max-width: 90vw;
+            max-height: 60vh;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .portfolio-designs {
+            padding: 40px 0;
+          }
+          .pd-card-img {
+            max-width: 92vw;
+            max-height: 55vh;
           }
         }
       `}</style>
